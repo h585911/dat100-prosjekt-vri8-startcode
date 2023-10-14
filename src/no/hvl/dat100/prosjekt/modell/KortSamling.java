@@ -22,10 +22,9 @@ public class KortSamling {
 	 */
 	public KortSamling() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("KortSamling"));
-		// TODO - END
+		//throw new UnsupportedOperationException(TODO.constructor("KortSamling"));
+		this.samling = new Kort[MAKS_KORT];
+		this.antall = 0;
 	}
 
 	/**
@@ -50,11 +49,8 @@ public class KortSamling {
 	 */
 	public int getAntalKort() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		//throw new UnsupportedOperationException(TODO.method());
+		return antall;
 	}
 	
 	/**
@@ -64,11 +60,8 @@ public class KortSamling {
 	 */
 	public boolean erTom() {
 		
-		// TODO - START
-				
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		//throw new UnsupportedOperationException(TODO.method());
+		return antall == 0;
 	}
 
 	/**
@@ -79,10 +72,17 @@ public class KortSamling {
 	 */
 	public void leggTil(Kort kort) {
 		
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/**
+		 * Sjekker først om samling.length er MINDRE eller LIK MAKS_KORT. 
+		 * Dersom dette stemmer, legger vi til ett kort i samlingen.
+		 */
+		//throw new UnsupportedOperationException(TODO.method());
+		
+		if(antall < MAKS_KORT) {
+			samling[antall] = kort;
+			antall++;
+		}
 		
 	}
 	
@@ -92,11 +92,20 @@ public class KortSamling {
 	 */
 	public void leggTilAlle() {
 		
-		// TODO - START
-		// Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		//throw new UnsupportedOperationException(TODO.method());
+		/*Kortfarge[] farger = Kortfarge.values();
+		for (Kortfarge farge : farger) {
+			for (int verdi = 1; verdi <= 13; verdi++) {
+				Kort kort = new Kort(farge, verdi);
+				leggTil(kort);
+			}
+		}*/
+		for (Kortfarge f : Kortfarge.values()) {
+			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
+				Kort kort = new Kort(f, i);
+				leggTil(kort);
+			}
+		}
 	}
 
 	/**
@@ -104,10 +113,7 @@ public class KortSamling {
 	 */
 	public void fjernAlle() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		antall = 0;
 	}
 	
 	/**
@@ -120,9 +126,15 @@ public class KortSamling {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		if (antall > 0) {
+			return samling[antall - 1];
+		} else {
+			return null;
+		}
 		
 	}
 
@@ -136,9 +148,17 @@ public class KortSamling {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO - END
+		if (antall > 0) {
+			antall--;
+			Kort sisteKort = samling[antall];
+			samling[antall] = null;
+			return sisteKort;
+		} else {
+			return null;
+		}
 	}
 	
 	/**
@@ -152,9 +172,15 @@ public class KortSamling {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// return false;
 		// TODO - END
+		for (int i = 0; i < antall; i++) {
+			if (samling[i].equals(kort)) {
+				return true;
+			}
+		}
+		return false;
 		
 	}
 
@@ -172,9 +198,21 @@ public class KortSamling {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		for (int i = 0; i < antall; i++) {
+			if (samling[i].equals(kort)) {
+				antall--;
+				for (int j = i; j < antall; j++) {
+					samling[j] = samling[j + 1];
+				}
+				samling[antall] = null;
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	/**
@@ -185,12 +223,16 @@ public class KortSamling {
 	 */
 	public Kort[] getAllekort() {
 		
-		// TODO - START
+		//return samling;
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
-		// TODO - END
-	
+		Kort[] alleKortKopi = new Kort[antall];
+		for (int i = 0; i < antall; i++) {
+			alleKortKopi[i] = samling[i];
+		}
+		
+		return alleKortKopi;
 	}
 	
 }
