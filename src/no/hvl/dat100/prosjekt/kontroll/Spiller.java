@@ -35,8 +35,11 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+		//throw new UnsupportedOperationException(TODO.constructor("Spiller"));
 		// TODO - END
+		hand = new KortSamling();
+		antalltrekk = 0;
+		spiller = Spillere.INGEN;
 	}
 
 	/**
@@ -50,44 +53,55 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+		//throw new UnsupportedOperationException(TODO.constructor("Spiller"));
 		// TODO - END
+		hand = new KortSamling();
+		antalltrekk = 0;
+		this.spiller = spiller;
 	}
 
 	public int getAntallKort() {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return hand.getAntalKort();
 	}
 
 	public KortSamling getHand() {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return hand;
 	}
 
 	public int getAntallTrekk() {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return antalltrekk;
 	}
 
 	public Spillere hvem() {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return spiller;
 		
 	}
 
@@ -95,16 +109,20 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		antalltrekk = t;
 	}
 
 	public boolean erFerdig() {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		return hand.erTom();
 		
 	}
 
@@ -112,8 +130,10 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		hand.leggTil(kort);
 		
 	}
 
@@ -121,8 +141,10 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		hand.fjern(kort);
 		
 	}
 
@@ -130,16 +152,21 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		hand.fjernAlle();
 	}
 
 	public void trekker(Kort kort) {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		hand.leggTil(kort);
+		antalltrekk++;
 		
 	}
 }

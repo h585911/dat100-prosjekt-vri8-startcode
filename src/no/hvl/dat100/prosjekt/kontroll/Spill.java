@@ -9,6 +9,7 @@ import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
+import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 /**
  * Klassen har objektvariaber som er referanser til de spillerne, nord og syd
@@ -30,9 +31,14 @@ public class Spill {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.constructor("Spill"));
+		//throw new UnsupportedOperationException(TODO.constructor("Spill"));
 		// TODO - END
+	
+		this.nord = nord;
+		this.syd = syd;
+		this.bord = bord;
 		
+		delutKort();
 	}
 	
 	/**
@@ -44,9 +50,11 @@ public class Spill {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return bord;
 		
 	}
 	
@@ -59,9 +67,11 @@ public class Spill {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return syd;
 		
 	}
 
@@ -74,9 +84,11 @@ public class Spill {
 		
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
+		
+		return nord;
 	}
 
 	/**
@@ -92,8 +104,23 @@ public class Spill {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
+		
+		nord = this.nord;
+		syd = this.syd;
+		
+		bord = new Bord();
+		
+		bord.getBunkeFra().leggTilAlle();
+		KortUtils.stokk(bord.getBunkeFra());
+		
+		for (int i = 0; i < ANTALL_KORT_START; i++) {
+			nord.leggTilKort(bord.getBunkeFra().taSiste());
+			syd.leggTilKort(bord.getBunkeFra().taSiste());
+		}
+		
+		bord.getBunkeTil().leggTil(bord.getBunkeFra().taSiste());
 	}
 
 	/**
