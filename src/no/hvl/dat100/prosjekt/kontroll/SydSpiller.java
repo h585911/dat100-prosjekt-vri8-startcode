@@ -40,8 +40,20 @@ public class SydSpiller extends Spiller {
 		// TODO - START
 		/* first-fit strategi */
 	
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 	
 		// TODO - END
+		
+		for (Kort kort : getHand().getAllekort()) {
+			if (Regler.kanLeggeNed(kort, topp)) {
+				return new Handling(HandlingsType.LEGGNED, kort);
+			}
+		}
+		
+		if (getAntallTrekk() < Regler.maksTrekk()) {
+			return new Handling(HandlingsType.TREKK, null);
+		}
+		
+		return new Handling(HandlingsType.FORBI, null);
 	}
 }
