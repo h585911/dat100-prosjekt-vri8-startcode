@@ -93,15 +93,22 @@ public class KortUtils {
 			kort[j] = temp;
 		}*/
 		Random rand = new Random();
-		int random = 0;
+		/*int random = 0;
 		
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 52; i++) {
 			for(int antall = samling.getAntalKort(); antall > 0; antall--) {
 				random = rand.nextInt(antall);
 				Kort kort = samling.getAllekort()[random];
 				samling.fjern(kort);
 				samling.leggTil(kort);
 			}
+		}*/
+		
+		for (int i = samling.getAntalKort() - 1; i > 0; i--) {
+			int j = rand.nextInt(i + 1);
+			Kort temp = samling.getSamling()[i];
+			samling.getSamling()[i] = samling.getSamling()[j];
+			samling.getSamling()[j] = temp;
 		}
 		
 		// For testing. Sjekker om den faktisk stokker om kortstokken. OK
