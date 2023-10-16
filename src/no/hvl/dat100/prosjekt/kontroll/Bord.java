@@ -2,6 +2,9 @@ package no.hvl.dat100.prosjekt.kontroll;
 
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
+
+import java.util.Arrays;
+
 import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
@@ -30,6 +33,9 @@ public class Bord {
 		bunkeFra = new KortSamling();
 		bunkeTil = new KortSamling();
 		bunkeFra.leggTilAlle();
+		
+		//KortUtils.stokk(bunkeFra);
+		//KortUtils.stokk(bunkeTil);
 	}
 	
 	/**

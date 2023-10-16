@@ -40,13 +40,34 @@ public class KortUtils {
 			
 			n--;
 		}*/
-		Kort[] kort = samling.getAllekort();
+		/*Kort[] kort = samling.getAllekort();
 		Arrays.sort(kort);
 		for (int i = 0; i < kort.length; i++) {
 			samling.fjernAlle();
 			for (Kort k : kort) {
 				samling.leggTil(k);
 			}
+		}*/
+		Kort[] kortArray = samling.getAllekort();
+		int n = kortArray.length;
+		boolean byttet = true;
+		
+		while (byttet) {
+			byttet = false;
+			for (int i = 1; i < n; i++) {
+				if (kortArray[i - 1].compareTo(kortArray[i]) > 0) {
+					Kort temp = kortArray[i];
+					kortArray[i] = kortArray[i - 1];
+					kortArray[i - 1] = temp;
+					byttet = true;
+				}
+			}
+			n--;
+		}
+		
+		samling.fjernAlle();
+		for (Kort kort : kortArray) {
+			samling.leggTil(kort);
 		}
 	}
 	
@@ -62,7 +83,7 @@ public class KortUtils {
 		
 		//throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
-		Kort[] kort = samling.getAllekort();
+		/*Kort[] kort = samling.getAllekort();
 		Random rand = new Random();
 		
 		for (int i = kort.length - 1; i > 0; i--) {
@@ -70,7 +91,21 @@ public class KortUtils {
 			Kort temp = kort[i];
 			kort[i] = kort[j];
 			kort[j] = temp;
+		}*/
+		Random rand = new Random();
+		int random = 0;
+		
+		for (int i = 0; i < 50; i++) {
+			for(int antall = samling.getAntalKort(); antall > 0; antall--) {
+				random = rand.nextInt(antall);
+				Kort kort = samling.getAllekort()[random];
+				samling.fjern(kort);
+				samling.leggTil(kort);
+			}
 		}
+		
+		// For testing. Sjekker om den faktisk stokker om kortstokken. OK
+		//System.out.println(Arrays.toString(kort));
 	}
 	
 }

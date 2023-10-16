@@ -72,11 +72,6 @@ public class KortSamling {
 	 */
 	public void leggTil(Kort kort) {
 		
-		
-		/**
-		 * Sjekker først om samling.length er MINDRE eller LIK MAKS_KORT. 
-		 * Dersom dette stemmer, legger vi til ett kort i samlingen.
-		 */
 		//throw new UnsupportedOperationException(TODO.method());
 		
 		if(antall < MAKS_KORT) {
@@ -131,6 +126,7 @@ public class KortSamling {
 		// TODO - END
 		
 		if (antall > 0) {
+			//System.out.print(samling[antall - 1]);
 			return samling[antall - 1];
 		} else {
 			return null;
@@ -155,6 +151,7 @@ public class KortSamling {
 			antall--;
 			Kort sisteKort = samling[antall];
 			samling[antall] = null;
+			//System.out.println("Sistekort er " + sisteKort);
 			return sisteKort;
 		} else {
 			return null;
