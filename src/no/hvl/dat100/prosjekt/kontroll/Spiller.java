@@ -33,10 +33,12 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller() {
 		
-		// TODO - START
+		/*
+		 * Oppretter en ny spiller med en tom hånd.
+		 * Vi setter antalltrekk til 0.
+		 * Spilleren blir satt til `Spillere.INGEN`.
+		 */
 		
-		//throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
 		hand = new KortSamling();
 		antalltrekk = 0;
 		spiller = Spillere.INGEN;
@@ -51,10 +53,12 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller(Spillere spiller) {
 		
-		// TODO - START
-
-		//throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
+		/*
+		 * Oppretter en ny spiller med en tom hånd.
+		 * Vi setter antalltrekk til 0.
+		 * Spilleren blir satt til `spiller`, som er parameteren som blir gitt i konstruktøren.
+		 */
+		
 		hand = new KortSamling();
 		antalltrekk = 0;
 		this.spiller = spiller;
@@ -62,44 +66,36 @@ public abstract class Spiller implements ISpiller {
 
 	public int getAntallKort() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `getAntallKort`-metoden fra `KortSamling` for å hente antall kort i hånden til spilleren.
+		 */
 		
 		return hand.getAntalKort();
 	}
 
 	public KortSamling getHand() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer referanse til `hand`, som er hånden til spilleren.
+		 */
 		
 		return hand;
 	}
 
 	public int getAntallTrekk() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer antall trekk som spilleren har gjort.
+		 */
 		
 		return antalltrekk;
 	}
 
 	public Spillere hvem() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer hvem spilleren er, representert av `spiller`-variabelen.
+		 */
 		
 		return spiller;
 		
@@ -107,20 +103,20 @@ public abstract class Spiller implements ISpiller {
 
 	public void setAntallTrekk(int t) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Setter antalltrekk til verdien som er gitt som parameter `t`.
+		 */
 		
 		antalltrekk = t;
 	}
 
 	public boolean erFerdig() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Sjekker om hånden til spilleren er tom vha. `erTom`-metoden fra `KortSamling`.
+		 * Hvis hånden er tom, returnerer metoden `true`.
+		 * Hvis hånden ikke er tom, returnerer metoden `false`.
+		 */
 		
 		return hand.erTom();
 		
@@ -128,10 +124,9 @@ public abstract class Spiller implements ISpiller {
 
 	public void leggTilKort(Kort kort) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Bruker `leggTil`-metoden fra `KortSamling` for å legge til kortet `kort` i hånden.
+		 */
 		
 		hand.leggTil(kort);
 		
@@ -139,10 +134,9 @@ public abstract class Spiller implements ISpiller {
 
 	public void fjernKort(Kort kort) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Bruker `fjern`-metoden fra `KortSamling` til å fjerne kortet `kort` fra hånden.
+		 */
 		
 		hand.fjern(kort);
 		
@@ -150,20 +144,19 @@ public abstract class Spiller implements ISpiller {
 
 	public void fjernAlleKort() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Bruker `fjernAlle`-metoden fra `KortSamling` for å fjerne alle kortene fra hånden.
+		 */
 		
 		hand.fjernAlle();
 	}
 
 	public void trekker(Kort kort) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Legger til kortet `kort` i hånden vha. `leggTil`-metoden fra `KortSamling`.
+		 * Vi øker antalltrekk med 1.
+		 */
 		
 		hand.leggTil(kort);
 		antalltrekk++;

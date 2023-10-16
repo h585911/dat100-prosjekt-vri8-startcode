@@ -22,7 +22,10 @@ public class KortSamling {
 	 */
 	public KortSamling() {
 		
-		//throw new UnsupportedOperationException(TODO.constructor("KortSamling"));
+		/*
+		 * Oppretter en KONSTRUKTUR som er en tom kortsamling / array med plass til MAKS_KORT (hele kortstokken).
+		 * Lengden på arrayen er nå MAKS_KORT lang. Setter antall kort til 0.
+		 */
 		this.samling = new Kort[MAKS_KORT];
 		this.antall = 0;
 	}
@@ -49,7 +52,10 @@ public class KortSamling {
 	 */
 	public int getAntalKort() {
 		
-		//throw new UnsupportedOperationException(TODO.method());
+		/*
+		 * Returnerer referanse til `antall`, som er antall kort i samlingen.
+		 */
+		
 		return antall;
 	}
 	
@@ -60,7 +66,10 @@ public class KortSamling {
 	 */
 	public boolean erTom() {
 		
-		//throw new UnsupportedOperationException(TODO.method());
+		/*
+		 * Sjekker om samlingen er tom ved å sjekke om antall er 0.
+		 */
+		
 		return antall == 0;
 	}
 
@@ -72,8 +81,10 @@ public class KortSamling {
 	 */
 	public void leggTil(Kort kort) {
 		
-		//throw new UnsupportedOperationException(TODO.method());
-		
+		/*
+		 * Sjekker først om antallet kort i samlingen er mindre eller lik MAKS_KORT.
+		 * Deretter legger vi til et kort i samlingen.
+		 */
 		if(antall < MAKS_KORT) {
 			samling[antall] = kort;
 			antall++;
@@ -87,14 +98,9 @@ public class KortSamling {
 	 */
 	public void leggTilAlle() {
 		
-		//throw new UnsupportedOperationException(TODO.method());
-		/*Kortfarge[] farger = Kortfarge.values();
-		for (Kortfarge farge : farger) {
-			for (int verdi = 1; verdi <= 13; verdi++) {
-				Kort kort = new Kort(farge, verdi);
-				leggTil(kort);
-			}
-		}*/
+		/*
+		 * Legger til alle kortene i kortstokken til samlingen ved å iterere gjennom alle mulige kortfarger og verdier.
+		 */
 		for (Kortfarge f : Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
 				Kort kort = new Kort(f, i);
@@ -119,14 +125,13 @@ public class KortSamling {
 	 */
 	public Kort seSiste() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Sjekker om samlingen ikke er tom ved å sjekke om antallet er større enn 0.
+		 * Hvis samlingen ikke er tom, returneres det siste kortet i samlingen uten å fjerne det.
+		 * Hvis samlingen er tom, returneres null.
+		 */
 		
 		if (antall > 0) {
-			//System.out.print(samling[antall - 1]);
 			return samling[antall - 1];
 		} else {
 			return null;
@@ -142,16 +147,17 @@ public class KortSamling {
 	 */
 	public Kort taSiste() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		/*
+		 * Sjekker om samlingen ikke er tom ved å sjekke om antallet er større enn 0.
+		 * Hvis samlingen ikke er tom, returneres `antall` med 1, 
+		 * og det siste kortet fjernes fra samlingen og returneres. 
+		 * 
+		 * Hvis samlingen er tom, returneres `null`.
+		 */
 		if (antall > 0) {
 			antall--;
 			Kort sisteKort = samling[antall];
 			samling[antall] = null;
-			//System.out.println("Sistekort er " + sisteKort);
 			return sisteKort;
 		} else {
 			return null;
@@ -167,11 +173,14 @@ public class KortSamling {
 	 */
 	public boolean har(Kort kort) {
 		
-		// TODO - START
+		/*
+		 * Itererer gjennom samlingen og sammenligher hvert kort med det gitte kortet vha. 
+		 * `equals()`-metoden. 
+		 * 
+		 * Hvis et matchende kort blir funnet, returneres `true`.
+		 * Hvis ingen match blir funnet, returneres `false`.
+		 */
 		
-		//throw new UnsupportedOperationException(TODO.method());
-		// return false;
-		// TODO - END
 		for (int i = 0; i < antall; i++) {
 			if (samling[i].equals(kort)) {
 				return true;
@@ -193,11 +202,12 @@ public class KortSamling {
 			 
 	public boolean fjern(Kort kort) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Itererer gjennom samlingen for å finne det gitte kortet.
+		 * Hvis kortet blir funnet returneres `true`, og kortet fjernes det fra samlingen.
+		 * Resten av samlingen forskyves for å fylle tomrommet. 
+		 * Hvis kortet ikke blir funnet, returneres `false`.
+		 */
 		for (int i = 0; i < antall; i++) {
 			if (samling[i].equals(kort)) {
 				antall--;
@@ -220,9 +230,12 @@ public class KortSamling {
 	 */
 	public Kort[] getAllekort() {
 		
-		//return samling;
-		
-		//throw new UnsupportedOperationException(TODO.method());
+		/*
+		 * Oppretter en ny array `alleKortKopi` med størrelse lik antall kort i samlingen.
+		 * Alle kortene kopieres fra arrayen `samling` til den nye arrayen `alleKortKopi`.
+		 * 
+		 * På denne måten vil størrelsen på arrayen som returneres, være nøyaktig lik antall kort i samlingen.
+		 */
 
 		Kort[] alleKortKopi = new Kort[antall];
 		for (int i = 0; i < antall; i++) {

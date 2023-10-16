@@ -30,10 +30,11 @@ public class Spill {
 	
 	public Spill() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.constructor("Spill"));
-		// TODO - END
+		/*
+		 * Oppretter to nye spillere: nord og syd.
+		 * Dette er av typen `NordSpiller` og `SydSpiller`.
+		 * Vi oppretter også ett nytt bord som er av typen `Bord`.
+		 */
 		
 		nord = new NordSpiller(Spillere.NORD);
 		syd = new SydSpiller(Spillere.SYD);
@@ -47,11 +48,9 @@ public class Spill {
 	 */
 	public Bord getBord() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer referanse til bordobjektet.
+		 */
 		
 		return bord;
 		
@@ -64,11 +63,9 @@ public class Spill {
 	 */
 	public ISpiller getSyd() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer referanse til syd-spilleren.
+		 */
 		
 		return syd;
 		
@@ -81,11 +78,9 @@ public class Spill {
 	 */
 	public ISpiller getNord() {
 		
-		// TODO - START
-
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Returnerer referanse til nord-spilleren.
+		 */
 		
 		return nord;
 	}
@@ -101,25 +96,14 @@ public class Spill {
 	 */
 	public void start() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
-		/*nord = this.nord;
-		syd = this.syd;
-		
-		bord = new Bord();
-		
-		bord.getBunkeFra().leggTilAlle();
-		KortUtils.stokk(bord.getBunkeFra());
-		
-		for (int i = 0; i < ANTALL_KORT_START; i++) {
-			nord.leggTilKort(bord.getBunkeFra().taSiste());
-			syd.leggTilKort(bord.getBunkeFra().taSiste());
-		}
-		
-		bord.getBunkeTil().leggTil(bord.getBunkeFra().taSiste());*/
+		/*
+		 * Vi stokker først fra-bunken.
+		 * 
+		 * Etter dette legger vi til kortene for nord- og syd-spillerene i henhold til reglene.
+		 * Dette gjør vi ved å bruke `taOversteFraBunke`-metoden i `Bord`-klassen.
+		 * 
+		 * Til slutt tar vi øverste kortet fra fra-bunken og legger det til til-bunken.
+		 */
 		
 		KortUtils.stokk(bord.getBunkeFra());
 		
@@ -137,10 +121,9 @@ public class Spill {
 	 */
 	private void delutKort() {
 
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Tydligvis totalt unødvendig metode som ikke blir brukt. 
+		 */
 		
 		KortSamling bunkefra = bord.getBunkeFra();
 		
@@ -166,27 +149,11 @@ public class Spill {
 	 */
 	public Kort trekkFraBunke(ISpiller spiller) {
 
-		// TODO - START
-			
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-		
-		/*KortSamling bunkefra = bord.getBunkeFra();
-		KortSamling bunketil = bord.getBunkeTil();
-		
-		if (bunkefra.erTom()) {
-			while (!bunketil.erTom()) {
-				bunkefra.leggTil(bunketil.taSiste());
-			}
-			
-			KortUtils.stokk(bunketil);
-		}
-		
-		Kort trukketKort = bunkefra.taSiste();
-		spiller.leggTilKort(trukketKort);
-		
-		return trukketKort;*/
+		/*
+		 * Vi sjekker først om `bunkefra`-objektet er tomt. 
+		 * Dersom `bunketil`-objektet ikke er tomt, tar vi siste kortet fra `bunketil`,
+		 * og legger det til `bunkefra`-objektet. 
+		 */
 		
 		KortSamling bunkefra = bord.getBunkeFra();
 		KortSamling bunketil = bord.getBunkeTil();
@@ -213,11 +180,17 @@ public class Spill {
 	 */
 	public Handling nesteHandling(ISpiller spiller) {
 		
-		// TODO - START
-		// Hint: se på hvilke metoder som er tilgjengelig på en spiller
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Vi henter det øverste kortet fra bunken, og deretter blir alle kortene til spilleren
+		 * sjekket for å se om de kan legges ned i henhold til reglene.
+		 * Hvis et kort kan legges ned, opprettes en handling av typen `LEGGNED` med det aktuelle kortet.
+		 * 
+		 * Hvis vi ikke kan gjøre denne handlingen, sjekker vi om antall tillatte trekk er mindre enn
+		 * `Regler.maksTrekk`, og om fra-bunken har kort. Hvis dette er tilfelle, oppretter vi en ny 
+		 * handling av typen `TREKK`. 
+		 * 
+		 * Hvis ingen av de handlingene ovenfor er oppfylt, oppretter vi en ny handling av typen `FORBI`.
+		 */
 		
 		Kort oversteBunkeTil = bord.seOversteBunkeTil();
 		Kort[] alleKort = spiller.getHand().getAllekort();
@@ -250,11 +223,14 @@ public class Spill {
 	 */
 	public boolean leggnedKort(ISpiller spiller, Kort kort) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Først henter vi til-bunken og spillerens hånd. 
+		 * Deretter bruker vi `har`-metoden fra `KortSamling` for å se om kortet er i spillerens hånd.
+		 * Hvis dette er tilfellet, blir det fjernet fra hånden og lagt til til-bunken.
+		 * Antall trekk for spilleren blir nullstilt.
+		 * 
+		 * Hvis kortet ikke finnes i hånden, returnerer metoden `false`.
+		 */
 		
 		KortSamling bunkeTil = bord.getBunkeTil();
 		KortSamling spillerHand = spiller.getHand();
@@ -279,11 +255,9 @@ public class Spill {
 	 */
 	public void forbiSpiller(ISpiller spiller) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - END
+		/*
+		 * Antall trekk for spilleren blir nullstilt. 
+		 */
 		
 		spiller.setAntallTrekk(0);
 	}
@@ -301,7 +275,20 @@ public class Spill {
 	 */
 	public Kort utforHandling(ISpiller spiller, Handling handling) {
 
-		// TODO - START
+		/*
+		 * Vi definerer handlingene i henhold til hva som er spesifisert i oppgaven.
+		 * Handlingene er enten: TREKK, LEGGNED eller FORBI.
+		 * 
+		 * Dersom handlingen er TREKK:
+		 * 		Vi trekker ett kort fra fra-bunken.
+		 * 
+		 * Dersom handlingen er LEGGNED:
+		 * 		Vi tar kortet fra spillerens hånd og legger det til til-bunken.
+		 * 
+		 * Dersom handlingen er FORBI:
+		 * 		Vi sier pass, og det er neste spillers tur.
+		 */
+		
 		Kort kort = null;
 		
 		if (handling.getType() == HandlingsType.TREKK) {
@@ -314,14 +301,7 @@ public class Spill {
 		}
 		
 		return kort;
-
-		// Hint: del opp i de tre mulige handlinger og vurder 
-		// om noen andre private metoder i klassen kan brukes
-		// til å implementere denne metoden
-				
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		
 	}
 
 }

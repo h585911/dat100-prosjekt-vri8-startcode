@@ -25,17 +25,15 @@ public class Bord {
 	 */
 	public Bord() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.constructor("Bord"));
-		// TODO - END
+		/*
+		 * Oppretter to bunker, til- og fra-bunken som er `KortSamling`-konstruktør.
+		 * Legger til alle kortene fra fra-bunken vha. `leggTilAlle`-metoden.
+		 */
 		
 		bunkeFra = new KortSamling();
 		bunkeTil = new KortSamling();
 		bunkeFra.leggTilAlle();
 		
-		//KortUtils.stokk(bunkeFra);
-		//KortUtils.stokk(bunkeTil);
 	}
 	
 	/**
@@ -44,6 +42,10 @@ public class Bord {
 	 * @return referanse/peker til til-bunken.
 	 */
 	public KortSamling getBunkeTil() {
+		
+		/*
+		 * Returnerer en referanse til til-bunken.
+		 */
 		
 		return bunkeTil;
 		
@@ -56,6 +58,10 @@ public class Bord {
 	 */
 	public KortSamling getBunkeFra() {
 		
+		/*
+		 * Returnerer en referanse til fra-bunken.
+		 */
+		
 		return bunkeFra;
 		
 	}
@@ -67,11 +73,10 @@ public class Bord {
 	 */
 	public boolean bunketilTom() {
 		
-		// TODO - START
-				
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `erTom`-metoden fra `KortSamling` for å sjekke om til-bunken er tom.
+		 * Metoden returnerer `true` dersom bunken er tom, og `false` om den ikke er det.
+		 */
 		
 		return bunkeTil.erTom();
 	}
@@ -83,11 +88,10 @@ public class Bord {
 	 */
 	public boolean bunkefraTom() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - END
+		/*
+		 * Bruker `erTom`-metoden fra `KortSamling` for å sjekke om fra-bunken er tom.
+		 * Metoden returnerer `true` dersom bunken er tom, og `false` om den ikke er det.
+		 */
 		
 		return bunkeFra.erTom();
 		
@@ -100,11 +104,10 @@ public class Bord {
 	 */
 	public int antallBunkeFra() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `getAntalKort`-metoden fra `KortSamling` for å hente antall kort i fra-bunken.
+		 * Returnerer hvor mange kort i fra-bunken som eksisterer.
+		 */
 		
 		return bunkeFra.getAntalKort();
 	}
@@ -116,11 +119,10 @@ public class Bord {
 	 */
 	public int antallBunkeTil() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `getAntalKort`-metoden fra `KortSamling` for å hente antall kort 
+		 * i til-bunken og returnerer dette tallet.
+		 */
 		
 		return bunkeTil.getAntalKort();
 	}
@@ -131,10 +133,11 @@ public class Bord {
 	 */
 	public void vendOversteFraBunke() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Sjekker først om fra-bunken er tom.
+		 * Hvis fra-bunken ikke er tom, tar den det siste kortet fra bunken vha. `taSiste`-metoden,
+		 * og legger det til i til-bunken vha. `leggTil`-metoden.
+		 */
 		
 		if (!bunkeFra.erTom()) {
 			Kort oversteKort = bunkeFra.taSiste();
@@ -151,11 +154,10 @@ public class Bord {
 	
 	public Kort taOversteFraBunke() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `taSiste`-metoden fra `KortSamling` for å fjerne og returnere
+		 * det siste kortet fra fra-bunken.
+		 */
 		
 		return bunkeFra.taSiste();
 	}
@@ -168,11 +170,10 @@ public class Bord {
 	 */
 	public Kort seOversteBunkeTil() {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		/*
+		 * Bruker `seSiste`-metoden fra `KortSamling` for å se på det
+		 * siste kortet i til-bunken uten å fjerne det. 
+		 */
 		
 		return bunkeTil.seSiste();
 	}
@@ -185,10 +186,13 @@ public class Bord {
 	 */
 	public void snuTilBunken() {
 
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Sjekker først om fra-bunken er tom. Hvis den er tom, tar vi vare på det siste
+		 * kortet i til-bunken. Deretter tar vi hvert kort fra til-bunken og legger det til i 
+		 * fra-bunken. 
+		 * Deretter stokkes fra-bunken vha. `KortUtils.stokk`-metoden. 
+		 * Til slutt legger vi kortet som ble tatt vare på tilbake i til-bunken.
+		 */
 		
 		if (bunkeFra.erTom()) {
 			Kort toppKort = bunkeTil.taSiste();
@@ -211,10 +215,9 @@ public class Bord {
 	 */
 	public void leggNedBunkeTil(Kort k) {
 		
-		// TODO - START
-		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		/*
+		 * Bruker `leggTil`-metoden fra `KortSamling` for å legge til kortet `k` i til-bunken.
+		 */
 		
 		bunkeTil.leggTil(k);
 				

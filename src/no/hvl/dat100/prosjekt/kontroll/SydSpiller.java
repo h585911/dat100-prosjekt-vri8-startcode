@@ -37,12 +37,11 @@ public class SydSpiller extends Spiller {
 	@Override
 	public Handling nesteHandling(Kort topp) {
 
-		// TODO - START
-		/* first-fit strategi */
-	
-		//throw new UnsupportedOperationException(TODO.method());
-	
-		// TODO - END
+		/*
+		 * Vi forsøker først å spille det første passende kortet som finnes i hånden.
+		 * Hvis det ikke finnes noen passene kort, trekker den et kort hvis antall trekk ikke er nådd.
+		 * Dersom vi ikke kan gjøre noe, bruker vi `FORBI`-handlingstypen.
+		 */
 		
 		for (Kort kort : getHand().getAllekort()) {
 			if (Regler.kanLeggeNed(kort, topp)) {

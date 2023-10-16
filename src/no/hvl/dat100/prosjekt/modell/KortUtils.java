@@ -18,56 +18,31 @@ public class KortUtils {
 	
 	public static void sorter(KortSamling samling) {
 		
-		// TODO - START
+		/*
+		 * Bruker boblesortering for å sortere en array av `Kort`-objektet ved å bruke compareTo-metoden.
+		 * Når arrayen er sortert, tømmes samlingen og de sorterte kortene legges tilbake i den riktige rekkefølgen.
+		 */
 		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
-		/*Kort[] kort = samling.getAllekort();
+		Kort[] kort = samling.getAllekort();
 		int n = kort.length;
-		boolean sortert = false;
+		boolean sortert = true;
 		
-		while (!sortert) {
-			sortert = true;
-			for (int i = 0; i < n - 1; i++) {
-				if (kort[i].compareTo(kort[i + 1]) > 0) {
-					Kort temp = kort[i];
-					kort[i] = kort[i + 1];
-					kort[i + 1] = temp;
-					sortert = false;
-				}
-			}
-			
-			n--;
-		}*/
-		/*Kort[] kort = samling.getAllekort();
-		Arrays.sort(kort);
-		for (int i = 0; i < kort.length; i++) {
-			samling.fjernAlle();
-			for (Kort k : kort) {
-				samling.leggTil(k);
-			}
-		}*/
-		Kort[] kortArray = samling.getAllekort();
-		int n = kortArray.length;
-		boolean byttet = true;
-		
-		while (byttet) {
-			byttet = false;
+		while (sortert) {
+			sortert = false;
 			for (int i = 1; i < n; i++) {
-				if (kortArray[i - 1].compareTo(kortArray[i]) > 0) {
-					Kort temp = kortArray[i];
-					kortArray[i] = kortArray[i - 1];
-					kortArray[i - 1] = temp;
-					byttet = true;
+				if (kort[i - 1].compareTo(kort[i]) > 0) {
+					Kort temp = kort[i];
+					kort[i] = kort[i - 1];
+					kort[i - 1] = temp;
+					sortert = true;
 				}
 			}
 			n--;
 		}
 		
 		samling.fjernAlle();
-		for (Kort kort : kortArray) {
-			samling.leggTil(kort);
+		for (Kort k : kort) {
+			samling.leggTil(k);
 		}
 	}
 	
@@ -79,30 +54,16 @@ public class KortUtils {
 	 */
 	public static void stokk(KortSamling samling) {
 		
-		// TODO - START
+		/*
+		 * Stokker samlingen ved å bruke Random-klassen til å bytte hvert kort med et tilfeldig
+		 * valgt kort i samlingen. Dette gjøres gjentatte ganger for hvert kort i samlingen,
+		 * noe som til slutt resulterer i en tilfeldig stokket samling.
+		 * 
+		 * Denne algoritmen er også kjent som "Fisher-Yates shuffle Algorithm".
+		 * KILDE: https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+		 */
 		
-		//throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		/*Kort[] kort = samling.getAllekort();
 		Random rand = new Random();
-		
-		for (int i = kort.length - 1; i > 0; i--) {
-			int j = rand.nextInt(i + 1);
-			Kort temp = kort[i];
-			kort[i] = kort[j];
-			kort[j] = temp;
-		}*/
-		Random rand = new Random();
-		/*int random = 0;
-		
-		for (int i = 0; i < 52; i++) {
-			for(int antall = samling.getAntalKort(); antall > 0; antall--) {
-				random = rand.nextInt(antall);
-				Kort kort = samling.getAllekort()[random];
-				samling.fjern(kort);
-				samling.leggTil(kort);
-			}
-		}*/
 		
 		for (int i = samling.getAntalKort() - 1; i > 0; i--) {
 			int j = rand.nextInt(i + 1);
@@ -111,8 +72,6 @@ public class KortUtils {
 			samling.getSamling()[j] = temp;
 		}
 		
-		// For testing. Sjekker om den faktisk stokker om kortstokken. OK
-		//System.out.println(Arrays.toString(kort));
 	}
 	
 }
