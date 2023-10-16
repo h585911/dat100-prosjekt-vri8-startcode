@@ -38,7 +38,6 @@ public class Spill {
 		nord = new NordSpiller(Spillere.NORD);
 		syd = new SydSpiller(Spillere.SYD);
 		bord = new Bord();
-		
 	}
 	
 	/**

@@ -15,7 +15,7 @@ public class Kontroll {
 	private Spill spill;
 
 	public Kontroll() {
-
+		
 	}
 
 	public void startSpill() {
@@ -270,9 +270,9 @@ public class Kontroll {
 	}
 
 	public void spillAuto() {
-
+		
 		while (!harVinner()) {
-
+			
 			ISpiller spiller = turSpiller();
 
 			if (spiller != null) {
