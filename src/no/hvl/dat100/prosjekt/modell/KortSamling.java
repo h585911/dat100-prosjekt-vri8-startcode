@@ -23,7 +23,7 @@ public class KortSamling {
 	public KortSamling() {
 		
 		/*
-		 * Oppretter en KONSTRUKTUR som er en tom kortsamling / array med plass til MAKS_KORT (hele kortstokken).
+		 * Oppretter et OBJEKT som er en tom kortsamling / array med plass til MAKS_KORT (hele kortstokken).
 		 * Lengden på arrayen er nå MAKS_KORT lang. Setter antall kort til 0.
 		 */
 		this.samling = new Kort[MAKS_KORT];
